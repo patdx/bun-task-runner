@@ -1,0 +1,23 @@
+{
+	"tasks": {
+		"build": {
+			"command": "luac -o greeting.out greeting.lua",
+			"inputs": ["greeting.lua"],
+			"outputs": ["greeting.out"]
+		},
+		"dev": {
+			"command": "lua greeting.lua",
+			"inputs": ["greeting.lua"]
+		},
+		"run": {
+			"command": "lua greeting.out",
+			"depends_on": ["build"],
+			"inputs": ["greeting.out"],
+			"cache": false
+		},
+		"clean": {
+			"command": "rm -f greeting.out",
+			"outputs": ["greeting.out"]
+		}
+	}
+}
